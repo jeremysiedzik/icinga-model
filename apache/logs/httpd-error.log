@@ -1,0 +1,2 @@
+[Thu Oct 26 17:58:18.382116 2017] [mpm_event:notice] [pid 1:tid 140521567963008] AH00489: Apache/2.4.29 (Unix) configured -- resuming normal operations
+[Thu Oct 26 17:58:18.382162 2017] [core:notice] [pid 1:tid 140521567963008] AH00094: Command line: 'httpd -D FOREGROUND'
