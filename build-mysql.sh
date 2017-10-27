@@ -6,7 +6,8 @@ TO_BUILD="mysql/mysql-server:latest"
 USER="root"
 PASSWORD="secrets"
 
-TCP_PORT="3306"
+LOCAL_TCP_PORT="6033"
+CONTAINER_TCP_PORT="3306"
 DOCKERIP=`ip -f inet addr show docker0 | grep -Po 'inet \K[\d.]+'`
 
 ROOT_DIR="/opt/testground"
@@ -38,7 +39,7 @@ echo "-------------------------------------------------------------------------"
 echo "  "
 
 echo "$(date) - Downloading components and starting container <$CONTAINER>"
-docker run -h $HOSTNAME -v $LOCAL_LOG_DIR:$CONTAINER_LOG_DIR -p $TCP_PORT:$TCP_PORT --name $CONTAINER -e MYSQL_ROOT_PASSWORD=$PASSWORD -d $TO_BUILD
+docker run -h $HOSTNAME -v $LOCAL_LOG_DIR:$CONTAINER_LOG_DIR -p $LOCAL_TCP_PORT:$CONTAINER_TCP_PORT --name $CONTAINER -e MYSQL_ROOT_PASSWORD=$PASSWORD -d $TO_BUILD
 docker logs $CONTAINER
 sleep 1
 echo "-------------------------------------------------------------------------"
@@ -46,11 +47,11 @@ echo "  "
 
 echo "Network information:"
 echo ""
-netstat -tulpn | grep $TCP_PORT
+netstat -tulpn | grep $LOCAL_TCP_PORT
 echo "-------------------------------------------------------------------------"
 echo "  "
 
-while ! curl -s http://127.0.0.1:$TCP_PORT > /dev/null
+while ! curl -s http://127.0.0.1:$LOCAL_TCP_PORT > /dev/null
 do
   echo "$(date) - Attempting to reach docker container <$CONTAINER>"
   sleep 2
@@ -80,7 +81,7 @@ docker cp $ASSETS/my.cnf $CONTAINER:/etc/my.cnf
 docker restart $CONTAINER
 sleep 2
 
-while ! curl -s http://127.0.0.1:$TCP_PORT > /dev/null
+while ! curl -s http://127.0.0.1:$LOCAL_TCP_PORT > /dev/null
 do
   echo "$(date) - Verifying restart of container <$CONTAINER>"
   sleep 2

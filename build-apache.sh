@@ -3,7 +3,8 @@ CONTAINER="httpd"
 HOSTNAME="httpd"
 TO_BUILD="httpd:latest"
 
-TCP_PORT="80"
+LOCAL_TCP_PORT="8080"
+CONTAINER_TCP_PORT="80"
 
 ROOT_DIR="/opt/testground"
 LOCAL_LOG_DIR="$ROOT_DIR/apache/logs"
@@ -40,19 +41,19 @@ echo "-------------------------------------------------------------------------"
 echo "  "
 
 echo "$(date) - Downloading components and starting container <$CONTAINER>"
-docker run -h $HOSTNAME -v $LOCAL_LOG_DIR:$CONTAINER_LOG_DIR -p $TCP_PORT:$TCP_PORT --name $CONTAINER -d $TO_BUILD 
+docker run -h $HOSTNAME -v $LOCAL_LOG_DIR:$CONTAINER_LOG_DIR -p $LOCAL_TCP_PORT:$CONTAINER_TCP_PORT --name $CONTAINER -d $TO_BUILD 
 docker logs $CONTAINER
 sleep 1
 echo "-------------------------------------------------------------------------"
 echo "  "
 
-echo"Network information:"
+echo "Network information:"
 echo ""
-netstat -tulpn | grep $TCP_PORT | grep docker
+netstat -tulpn | grep $LOCAL_TCP_PORT | grep docker
 echo "-------------------------------------------------------------------------"
 echo "  "
 
-while ! curl -s http://127.0.0.1:$TCP_PORT > /dev/null
+while ! curl -s http://127.0.0.1:$LOCAL_TCP_PORT > /dev/null
 do
   echo "$(date) - Attemtping to reach docker container <$CONTAINER>"
   sleep 2
@@ -74,7 +75,7 @@ docker exec -dit $CONTAINER chown root:www-data $SERVERCONFIGFILE
 docker restart $CONTAINER
 sleep 2
 
-while ! curl -s http://127.0.0.1:$TCP_PORT > /dev/null
+while ! curl -s http://127.0.0.1:$LOCAL_TCP_PORT > /dev/null
 do
   echo "$(date) - Verifying restart of container <$CONTAINER>"
   sleep 2
