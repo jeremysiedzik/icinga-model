@@ -78,6 +78,8 @@ docker exec -dit $CONTAINER chown root:www-data $SERVERCONFIGFILE
 docker restart $CONTAINER
 sleep 2
 
+touch $LOCAL_LOG_DIR/README
+
 while ! curl -s http://127.0.0.1:$LOCAL_TCP_PORT > /dev/null
 do
   echo "$(date) - Verifying restart of container <$CONTAINER>"

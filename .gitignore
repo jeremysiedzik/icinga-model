@@ -1,7 +1,4 @@
-./mysql/logs/*
-./apache/logs/*
-./logs/*
+**/logs/
+
 # exception to the rule
-!./mysql/logs/README
-!./apache/logs/README
-!./logs/README
+!**/logs/README
