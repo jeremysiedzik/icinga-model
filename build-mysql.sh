@@ -14,7 +14,7 @@ ROOT_DIR="/opt/testground"
 LOCAL_LOG_DIR="$ROOT_DIR/mysql/logs"
 CONTAINER_LOG_DIR="/var/lib/mysql"
 ASSETS="$ROOT_DIR/mysql/assets"
-TAR_DESTINATION="/opt"
+TAR_DESTINATION="/opt/testground/logs"
 
 apt-get install curl
 apt-get install mysql-client
@@ -93,3 +93,5 @@ echo "-------------------------------------------------------------------------"
 echo ""
 echo "Your container is ready for use"
 echo ""
+touch $LOCAL_LOG_DIR/README
+ls -la $LOCAL_LOG_DIR
