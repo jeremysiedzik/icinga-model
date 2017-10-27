@@ -10,12 +10,15 @@ ROOT_DIR="/opt/testground"
 LOCAL_LOG_DIR="$ROOT_DIR/apache/logs"
 CONTAINER_LOG_DIR="/usr/local/apache2/logs"
 ASSETS="$ROOT_DIR/apache/assets"
-TAR_DESTINATION=$ROOT_DIR
+TAR_DESTINATION="/opt"
 
 SERVERNAME="testcase"
 SERVERCONFIGFILE="/usr/local/apache2/conf/httpd.conf"
 LOCALCONFIGFILE="httpd.conf"
 LOCALMASTERCONFIG="master-httpd.conf"
+
+apt-get install curl
+apt-get install mysql-client
 
 tar -cvf $TAR_DESTINATION/apache-logs-$(date +%Y-%m-%d-%H.%M).tar $LOCAL_LOG_DIR
 

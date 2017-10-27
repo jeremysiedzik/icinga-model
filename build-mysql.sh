@@ -1,7 +1,7 @@
 #!/bin/bash
 CONTAINER="mysql"
 HOSTNAME="mysql"
-TO_BUILD="mysql/mysql-server:latest"
+TO_BUILD="mysql:latest"
 
 USER="root"
 PASSWORD="secrets"
@@ -14,7 +14,10 @@ ROOT_DIR="/opt/testground"
 LOCAL_LOG_DIR="$ROOT_DIR/mysql/logs"
 CONTAINER_LOG_DIR="/var/lib/mysql"
 ASSETS="$ROOT_DIR/mysql/assets"
-TAR_DESTINATION=$ROOT_DIR
+TAR_DESTINATION="/opt"
+
+apt-get install curl
+apt-get install mysql-client
 
 tar -cvf $TAR_DESTINATION/mysql-logs-$(date +%Y-%m-%d-%H%M).tar $LOCAL_LOG_DIR
 
@@ -73,7 +76,7 @@ sleep 2
 
 echo "$(date) - Version info should be displayed if local mysql connection is successful:"
 export MYSQL_PWD=$PASSWORD
-mysql -u$USER -h 127.0.0.1 -e "SHOW VARIABLES LIKE '%version%';"
+mysql -u$USER -h 127.0.0.1 --port=$LOCAL_TCP_PORT -e "SHOW VARIABLES LIKE '%version%';"
 sleep 2
 
 echo "$(date) - Updating mysql configuration on container <$CONTAINER> and restarting"

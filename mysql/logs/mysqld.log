@@ -1,0 +1,43 @@
+2017-10-27T00:35:31.267440Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2017-10-27T00:35:31.267949Z 0 [Note] mysqld (mysqld 5.7.20) starting as process 1 ...
+2017-10-27T00:35:31.270016Z 0 [Note] InnoDB: PUNCH HOLE support available
+2017-10-27T00:35:31.270029Z 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+2017-10-27T00:35:31.270032Z 0 [Note] InnoDB: Uses event mutexes
+2017-10-27T00:35:31.270034Z 0 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+2017-10-27T00:35:31.270036Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2017-10-27T00:35:31.270038Z 0 [Note] InnoDB: Using Linux native AIO
+2017-10-27T00:35:31.270164Z 0 [Note] InnoDB: Number of pools: 1
+2017-10-27T00:35:31.270221Z 0 [Note] InnoDB: Using CPU crc32 instructions
+2017-10-27T00:35:31.270939Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2017-10-27T00:35:31.275201Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2017-10-27T00:35:31.276132Z 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2017-10-27T00:35:31.287939Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2017-10-27T00:35:31.324801Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2017-10-27T00:35:31.324914Z 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2017-10-27T00:35:31.348952Z 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2017-10-27T00:35:31.349576Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2017-10-27T00:35:31.349585Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2017-10-27T00:35:31.349897Z 0 [Note] InnoDB: Waiting for purge to start
+2017-10-27T00:35:31.400617Z 0 [Note] InnoDB: 5.7.20 started; log sequence number 12169691
+2017-10-27T00:35:31.400889Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2017-10-27T00:35:31.405829Z 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+2017-10-27T00:35:31.408233Z 0 [Note] InnoDB: Buffer pool(s) load completed at 171027  0:35:31
+2017-10-27T00:35:31.408347Z 0 [Note] Found ca.pem, server-cert.pem and server-key.pem in data directory. Trying to enable SSL support using them.
+2017-10-27T00:35:31.408588Z 0 [Warning] CA certificate ca.pem is self signed.
+2017-10-27T00:35:31.410840Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+2017-10-27T00:35:31.410876Z 0 [Note] IPv6 is available.
+2017-10-27T00:35:31.410884Z 0 [Note]   - '::' resolves to '::';
+2017-10-27T00:35:31.410902Z 0 [Note] Server socket created on IP: '::'.
+2017-10-27T00:35:31.415533Z 0 [Warning] 'user' entry 'root@localhost' ignored in --skip-name-resolve mode.
+2017-10-27T00:35:31.415579Z 0 [Warning] 'user' entry 'mysql.sys@localhost' ignored in --skip-name-resolve mode.
+2017-10-27T00:35:31.415607Z 0 [Warning] 'db' entry 'performance_schema mysql.session@localhost' ignored in --skip-name-resolve mode.
+2017-10-27T00:35:31.415615Z 0 [Warning] 'db' entry 'sys mysql.sys@localhost' ignored in --skip-name-resolve mode.
+2017-10-27T00:35:31.415627Z 0 [Warning] 'proxies_priv' entry '@ root@localhost' ignored in --skip-name-resolve mode.
+2017-10-27T00:35:31.418092Z 0 [Warning] 'tables_priv' entry 'user mysql.session@localhost' ignored in --skip-name-resolve mode.
+2017-10-27T00:35:31.418111Z 0 [Warning] 'tables_priv' entry 'sys_config mysql.sys@localhost' ignored in --skip-name-resolve mode.
+2017-10-27T00:35:31.424574Z 0 [Note] Event Scheduler: Loaded 0 events
+2017-10-27T00:35:31.424781Z 0 [Note] mysqld: ready for connections.
+Version: '5.7.20'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
+2017-10-27T00:35:31.424795Z 0 [Note] Executing 'SELECT * FROM INFORMATION_SCHEMA.TABLES;' to get a list of tables using the deprecated partition engine. You may use the startup option '--disable-partition-engine-check' to skip this check. 
+2017-10-27T00:35:31.424807Z 0 [Note] Beginning of list of non-natively partitioned tables
+2017-10-27T00:35:31.436292Z 0 [Note] End of list of non-natively partitioned tables
